@@ -2,6 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+const cors = require('cors');
 
 //Instância do express, para lidar com as rotas, parâmetros e respostas pro cliente
 const app = express();
@@ -23,7 +24,7 @@ app.use((req, res, next) =>{
 })
 
 //configuração do cors
-app.use(cors());
+app.use(cors()); 
 
 //rota para arquviso estáticos, por exemplo, imagens
 app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads', 'resized')))
